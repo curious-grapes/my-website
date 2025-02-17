@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://curious-grapes.one/sitemap_index.xml
