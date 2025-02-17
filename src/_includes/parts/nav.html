@@ -1,29 +1,30 @@
 <div class="m-12">
   <nav>
-    <div class="py-2 border-b-2 mb-6">
-      <ul class="hidden md:flex justify-normal">
-        <li class="mr-6 text-xl"><a class="nav-link" href="/">Home</a></li>
-        <li class="mr-6 text-xl"><a class="nav-link" href="/about">About</a></li>
-        <li class="mr-6 text-xl"><a class="nav-link" href="/contacts">Contacts</a></li>
-        <li class="flex-grow"></li>
+    <div class="py-2 border-b-2 mb-6 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/"><img src="https://curious-grapes.one/wp-content/uploads/2024/03/cop-3.png" class="size-9 my-1" alt="Image"></a>
+        <a class="nav-link ml-6 text-xl font-bold" href="{{ navlinks.home }}">Roman tries engineering</a>
+      </div>
+      <ul class="hidden md:flex justify-normal items-center">
+        <li class="mr-6 text-xl"><a class="nav-link" href="{{ navlinks.about }}">About</a></li>
+        <li class="mr-6 text-xl"><a class="nav-link" href="{{ navlinks.contacts }}">Contacts</a></li>
+        <li class="mr-6 text-xl"><a class="nav-link" href="{{ navlinks.ua }}">UA</a></li>
         <li class="mr-6"><span class="material-symbols-outlined cursor-pointer my-2" id="toggleDarkMode">dark_mode</span></li>
-        <li class="mr-6 text-xl"><a class="nav-link" href="/contacts">Language</a></li>
       </ul>
-      <ul class="md:hidden flex justify-between">
-        <li class="flex-grow p-5"></li>
-        <li><button id="menuButton" class="md:hidden text-xl focus:outline-none"><span class="material-symbols-outlined" id="menuIcon">menu</span></button></li>
+      <ul class="md:hidden flex items-center">
+        <li><button id="menuButton" class="text-xl focus:outline-none"><span class="material-symbols-outlined" id="menuIcon">menu</span></button></li>
       </ul>
     </div>
   </nav>
   <div id="menu"
     class="hidden fixed top-15 right-2 bg-gray-900 bg-opacity-90 z-50 flex-col items-center justify-center space-y-6 text-white text-xl rounded-lg p-5">
+    
     <ul class="space-y-6 list-none">
-      <li class="mr-6 text-xl"><a class="nav-link" href="/">Home</a></li>
-      <li class="mr-6 text-xl"><a class="nav-link" href="/about">About</a></li>
-      <li class="mr-6 text-xl"><a class="nav-link" href="/contacts">Contacts</a></li>
+      <li class="mr-6 text-xl"><a class="nav-link" href="{{ navlinks.about }}">About</a></li>
+      <li class="mr-6 text-xl"><a class="nav-link" href="{{ navlinks.contacts }}">Contacts</a></li>
       <li class="flex-grow"></li>
-      <li class="mr-6"><span class="material-symbols-outlined cursor-pointer md-60" id="toggleDarkMode">dark_mode</span></li>
-      <li class="mr-6 text-xl"><a class="nav-link" href="/contacts">Language</a></li>
+      <li class="mr-6"><span class="material-symbols-outlined cursor-pointer " id="toggleDarkMode">dark_mode</span>
+      <a class="nav-link" href="{{ navlinks.ua }}"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg" alt="Ukraine Flag" style="width: 24px; height: 16px;"></a></li>
     </ul>
   </div>
 </div>
@@ -63,4 +64,3 @@
     }
   });
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
