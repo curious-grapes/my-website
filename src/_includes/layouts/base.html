@@ -23,7 +23,6 @@
         // Function to check if dark mode is enabled
         function isDarkMode() {
             const isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            console.log('isDarkMode check:', isDark);  // Debugging line
             return isDark;
         }
     
@@ -43,8 +42,6 @@
                 localStorage.theme = 'light';  // Store theme preference
             }
     
-            // Debugging line to confirm the theme application
-            console.log('Applied theme:', dark ? 'dark' : 'light');
         }
     
         // Apply theme based on saved preference (no transition on load)

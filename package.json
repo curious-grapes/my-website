@@ -6,7 +6,8 @@
     "start": "npx eleventy --serve",
     "devstart": "npx eleventy --serve && npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
     "clean": "rm -rf _site package-lock.json node_modules && npm cache clean --force",
-    "build": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch"
+    "build": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
+    "prod": "npx eleventy && npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --minify"
   },
   "keywords": [],
   "author": "",
