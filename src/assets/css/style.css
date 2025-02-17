@@ -22,14 +22,21 @@ a {
   bottom: 0;
   height: 2px;
   width: 100%;
-  background-color: #434343;
+  background-color: #434343;  /* Default color for light theme */
   transform: translateX(-105%);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;  /* Ensure transition of background-color */
 }
 
+/* On hover, the line moves */
 .nav-link:hover::before {
   transform: translateX(0);
 }
+
+/* Dark mode style */
+.dark .nav-link::before {
+  background-color: #bbb;  /* Change to a lighter/darker color for dark theme */
+}
+
 
 
 
