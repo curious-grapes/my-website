@@ -49,6 +49,17 @@ a {
 
 
 
+/* Smooth transition for dark mode */
+/* Smooth transition for background and text color */
+html, body {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Optional: Add a slight delay effect for smoother theme switching */
+.theme-transition {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
 
 
 

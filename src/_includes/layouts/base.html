@@ -3,10 +3,11 @@
 <head>
     {% include "parts/basehead.html" %}
 </head>
-<body class="bg-zinc-100 flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 fade-in">
+
     {% include "parts/nav.html" %}
 
-    <div class="prose mx-4 sm:mx-8 md:mx-16 lg:mx-40 max-w-none text-justify flex-grow">
+    <div class="prose mx-4 sm:mx-8 md:mx-16 lg:mx-40 max-w-none text-justify flex-grow dark:text-gray-100">
         {{content | safe}} 
     </div>
 
@@ -14,6 +15,58 @@
     <!-- anything that is content for whatever that is using  
     this page it is safe to pass in this body-->
     {% include "parts/footer.html" %}   
+
+
+
+    <script>
+        // Function to check if dark mode is enabled
+        function isDarkMode() {
+            return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        }
+    
+        // Function to apply theme with smooth transition
+        function applyTheme(dark) {
+            document.documentElement.classList.add('theme-transition'); // Ensure transition applies
+            if (dark) {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            }
+        }
+    
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTheme(isDarkMode());
+    
+            // Add smooth transition class after page load to avoid flicker
+            setTimeout(() => {
+                document.documentElement.classList.add('theme-transition');
+            }, 10);
+        });
+    
+        // Dark mode toggle event listener
+        document.getElementById("toggleDarkMode").addEventListener("click", function() {
+            const darkModeEnabled = !isDarkMode();
+            applyTheme(darkModeEnabled);
+        
+            // Change the icon dynamically with fade transition
+            this.classList.add('fade-out');
+            setTimeout(() => {
+            this.textContent = darkModeEnabled ? "dark_mode" : "light_mode";
+            this.classList.remove('fade-out');
+            this.classList.add('fade-in');
+            setTimeout(() => {
+                this.classList.remove('fade-in');
+            }, 500);
+            }, 250);
+
+        });
+    </script>
+
+
+
 </body>
 </html>
 <!-- Hello there! -->
