@@ -18,52 +18,59 @@
 
 
 
+
     <script>
         // Function to check if dark mode is enabled
         function isDarkMode() {
-            return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            const isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            console.log('isDarkMode check:', isDark);  // Debugging line
+            return isDark;
         }
     
-        // Function to apply theme with smooth transition
-        function applyTheme(dark) {
-            document.documentElement.classList.add('theme-transition'); // Ensure transition applies
+        // Function to apply the theme with smooth transition when toggled manually
+        function applyTheme(dark, isManualToggle = false) {
+            if (isManualToggle) {
+                document.documentElement.classList.add('transition-colors', 'duration-500');
+            } else {
+                document.documentElement.classList.remove('transition-colors', 'duration-500');
+            }
+    
             if (dark) {
                 document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
+                localStorage.theme = 'dark';  // Store theme preference
             } else {
                 document.documentElement.classList.remove('dark');
-                localStorage.theme = 'light';
+                localStorage.theme = 'light';  // Store theme preference
             }
+    
+            // Debugging line to confirm the theme application
+            console.log('Applied theme:', dark ? 'dark' : 'light');
         }
     
-        // Apply theme on page load
+        // Apply theme based on saved preference (no transition on load)
         document.addEventListener('DOMContentLoaded', () => {
-            applyTheme(isDarkMode());
-    
-            // Add smooth transition class after page load to avoid flicker
-            setTimeout(() => {
-                document.documentElement.classList.add('theme-transition');
-            }, 10);
+            const currentTheme = isDarkMode();
+            applyTheme(currentTheme, false);  // Apply theme on page load
         });
     
-        // Dark mode toggle event listener
+        // Event listener for dark mode toggle
         document.getElementById("toggleDarkMode").addEventListener("click", function() {
-            const darkModeEnabled = !isDarkMode();
-            applyTheme(darkModeEnabled);
-        
-            // Change the icon dynamically with fade transition
+            const darkModeEnabled = !isDarkMode();  // Toggle between dark and light
+            applyTheme(darkModeEnabled, true);  // Apply theme with animation
+    
+            // Change the icon with a fade-in/out animation
             this.classList.add('fade-out');
             setTimeout(() => {
-            this.textContent = darkModeEnabled ? "dark_mode" : "light_mode";
-            this.classList.remove('fade-out');
-            this.classList.add('fade-in');
-            setTimeout(() => {
-                this.classList.remove('fade-in');
-            }, 500);
-            }, 250);
-
+                this.textContent = darkModeEnabled ? "dark_mode" : "light_mode";  // Switch icon text
+                this.classList.remove('fade-out');
+                this.classList.add('fade-in');
+                setTimeout(() => {
+                    this.classList.remove('fade-in');
+                }, 500);  // Animation duration
+            }, 250);  // Short delay before changing the icon
         });
     </script>
+    
 
 
 
