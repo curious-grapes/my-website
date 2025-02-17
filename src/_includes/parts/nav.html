@@ -1,0 +1,58 @@
+<div class="m-12">
+  <nav>
+    <div class="py-2 border-b-2 mb-6">
+      <ul class="hidden md:flex justify-normal">
+        <li class="mr-6 text-xl"><a class="hover:decoration-dashed" href="/">Home</a></li>
+        <li class="mr-6 text-xl"><a class="hover:decoration-dashed" href="/">About</a></li>
+        <li class="mr-6 text-xl"><a href="/contacts">Contacts</a></li>
+        <li class="flex-grow"></li>
+        <li class="mr-6"><span class="material-symbols-outlined cursor-pointer md-60" id="toggleDarkMode">dark_mode</span></li>
+        <li class="mr-6 text-xl"><a href="/contacts">Language</a></li>
+      </ul>
+      <ul class="md:hidden flex justify-between">
+        <li class="flex-grow p-5"></li>
+        <li><button id="menuButton" class="md:hidden text-xl focus:outline-none"><span class="material-symbols-outlined">menu</span></button></li>
+      </ul>
+    </div>
+
+
+  </nav>
+  <div id="menu"
+    class="hidden fixed top-0 right-0 bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 text-white text-xl rounded-lg p-6 px-9">
+    <ul class="space-y-6 list-none">
+      <button id="closeMenuButton" class="text-xl focus:outline-none ml-10 mt-8"><span class="material-symbols-outlined">close</span></button>
+      <li><a class="hover:decoration-dashed" href="/">Home</a></li>
+      <li><a class="hover:decoration-dashed" href="/">About</a></li>
+      <li><a href="/contacts">Contacts</a></li>
+      <li><span class="material-symbols-outlined cursor-pointer md-60" id="toggleDarkMode">dark_mode</span></li>
+      <li><a href="/contacts">Language</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const menu = document.getElementById('menu');
+  const closeMenuButton = document.getElementById('closeMenuButton');
+
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('flex');
+    menu.classList.add('animate__animated', 'animate__fadeIn');
+    menu.style.setProperty('--animate-duration', '0.2s');
+    menu.classList.toggle('hidden');
+    menuButton.classList.toggle('hidden');
+  });
+
+  closeMenuButton.addEventListener('click', () => {
+    menu.classList.remove('animate__fadeIn');
+    menu.classList.add('animate__fadeOut');
+    setTimeout(() => {
+      menu.classList.toggle('flex');
+      menu.classList.toggle('hidden');
+      menu.classList.remove('animate__fadeOut');
+      menuButton.classList.toggle('hidden');
+    }, 200);
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>

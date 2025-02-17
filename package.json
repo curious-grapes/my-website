@@ -1,0 +1,26 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "devstart": "npx eleventy --serve && npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
+    "clean": "rm -rf _site package-lock.json node_modules && npm cache clean --force",
+    "build": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "postcss-cli": "^11.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.0.18"
+  }
+}

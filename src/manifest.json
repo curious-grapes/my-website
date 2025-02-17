@@ -1,0 +1,15 @@
+{
+    "name": "My Blog",
+    "short_name": "Blog",
+    "icons": [
+      {
+        "src": "/assets/img/123.ico",
+        "type": "image/x-icon"
+      }
+    ],
+    "theme_color": "#000",
+    "background_color": "#fff",
+    "display": "standalone",
+    "start_url": "/"
+  }
+

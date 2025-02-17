@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "parts/basehead.html" %}
+</head>
+<body class="bg-zinc-100">
+    {% include "parts/nav.html" %}
+
+    <div class="prose mx-4 sm:mx-8 md:mx-16 lg:mx-32 max-w-none text-justify">
+        {{content | safe}} 
+    </div>
+
+
+    <br><br>
+    <!-- anything that is content for whatever that is using  
+    this page it is safe to pass in this body-->
+    {% include "parts/footer.html" %}
+</body>
+</html>
+<!-- Hello there! -->
