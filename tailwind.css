@@ -1,16 +1,3 @@
 @tailwind base;  /* type: ignore */
-
-@font-face {
-    font-family: 'Marske';
-    src: local('Marske'), url('../fonts/Marske.woff2') format('woff2'),
-    url('../fonts/Marske.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Nunito';
-    src: local('Nunito'), url('../fonts/Nunito.woff2') format('woff2'),
-    url('../fonts/Nunito.woff') format('woff');
-}
-
 @tailwind components;
 @tailwind utilities;

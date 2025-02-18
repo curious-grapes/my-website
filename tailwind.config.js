@@ -13,8 +13,7 @@ module.exports = {
                 },
             },
             fontFamily: {
-                sanzs: ['Nunito', ...defaultTheme.fontFamily.sans],
-                brand: ["Marske", ...defaultTheme.fontFamily.sans],
+                roboto: ["Roboto", "sans-serif"]
             },
         },
     },

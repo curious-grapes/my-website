@@ -3,20 +3,37 @@
 <head>
     {% include "parts/basehead.html" %}
 </head>
-<body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 fade-in">
+<body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 fade-in font-roboto">
 
     {% include "parts/nav.html" %}
 
+    
 
-
-    <div class=" prose dark:prose-invert mx-4 sm:mx-8 md:mx-16 lg:mx-40 max-w-none text-justify flex-grow dark:text-gray-100">
-        {% if page.url != "/" %}
-            <div class="text-5xl font-bold">{{title}}</div>
-            <!-- <div class="text-5xl md:text-6xl font-black pt-10 md:pt-20 leading-tight">{{title}}</div> -->
-            
-        {% endif %}
-        {{content | safe}} 
+    {% if page.url != "/" %}
+    <div class="featured-image-container mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none">
+        <img src="{{ img }}" alt="{{ title }}" class="rounded-lg shadow-lg mx-auto">
     </div>
+    <div class="prose dark:prose-invert mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none text-justify flex-grow dark:text-gray-100">
+         
+        <div class="text-5xl font-bold">{{title}}</div>
+        {{content | safe}} 
+    </div> 
+    <style>
+        .prose img {
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    {% endif %}
+
+    {% if page.url == "/" %}
+        <div class="flex-grow mx-4 sm:mx-8 md:mx-16 lg:mx-20 max-w-none text-justify">
+            {{content | safe}} 
+        </div>
+    {% endif %}
 
     <br>
     <!-- anything that is content for whatever that is using  

@@ -1,17 +1,35 @@
+import { DateTime } from 'luxon';
+
 export default function(eleventyConfig) {
   
-    eleventyConfig.addPassthroughCopy('src/assets');
-    eleventyConfig.addPassthroughCopy('src/manifest.json');
-    eleventyConfig.addPassthroughCopy('src/robots.txt');
-    return {
-      dir: {
-        input: 'src',
-        includes: '_includes',
-        output: '_site',
-      },
-      templateFormats: ['md', 'njk', 'html'],
-      markdownTemplateEngine: 'njk',
-      htmlTemplateEngine: 'njk',
-      dataTemplateEngine: 'njk',
-    };
+  eleventyConfig.addPassthroughCopy('src/assets');
+  eleventyConfig.addPassthroughCopy('src/manifest.json');
+  eleventyConfig.addPassthroughCopy('src/robots.txt');
+  eleventyConfig.addPassthroughCopy('src/posts/**/*.jpg');
+  eleventyConfig.addPassthroughCopy('src/posts/**/*.png');
+
+  // Add custom date filter
+  eleventyConfig.addFilter('readableDate', (dateString) => {
+    return DateTime.fromISO(dateString).toFormat('MMM dd, yyyy');
+  });
+
+  // To create a filter to determine duration of post
+  eleventyConfig.addFilter('readTime', (value) => {
+    const content = value
+    const textOnly = content.replace(/(<([^>]+)>)/gi, '')
+    const readingSpeedPerMin = 450
+    return Math.max(1, Math.floor(textOnly.length / readingSpeedPerMin))
+  });
+
+  return {
+    dir: {
+    input: 'src',
+    includes: '_includes',
+    output: '_site',
+    },
+    templateFormats: ['md', 'njk', 'html'],
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+  };
   }
