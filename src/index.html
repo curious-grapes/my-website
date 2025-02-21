@@ -3,23 +3,20 @@ layout: layouts/base.html
 title: "Roman tries engineering"
 ---
 
-
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {% for post in collections.post %}
+    {% for post in collections.post | sort(attribute='data.date', reverse=true) %}
     <div class="rounded-2xl border border-gray-300 mb-5 max-w-xs mx-auto transform transition-transform duration-300 hover:scale-105">
         <a href="{{ post.url}}">
-            <img src="{{ post.data['img'] }}" alt="{{ post.data.title }}" class="rounded-t-2xl object-cover">
+            <img src="{{ post.data['img'] }}" alt="{{ post.data.title }}" class="rounded-t-2xl object-cover w-full h-48 aspect-w-16 aspect-h-9">
             <div class="ml-4">
                 <h1 class="text-3xl font-bold my-2">{{ post.data.title }}</h1>
                 <p class="text-[13px] font-extralight font-stretch-condensed mb-4 flex justify-between mr-4">
                     <span>{{ post.data.date | readableDate }}</span>
                     <span>{{ post.content | safe | readTime }} min read</span>
                 </p>                
-                <p class="font-light mb-3">{{ post.data.excerpt }}</p>
+                <p class="font-light mb-3 mr-3">{{ post.data.excerpt }}</p>
             </div>
         </a>
     </div>
-      
     {% endfor %}
 </div>
-
