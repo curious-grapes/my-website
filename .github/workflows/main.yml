@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest  # Use an Ubuntu runner
 
     steps:
@@ -24,11 +25,12 @@ jobs:
       - name: Build the site with 11ty
         run: npm run prod
 
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
+      - name: Copy _site folder content via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          local: _site  # Local directory to be copied
-          remote: /var/www/curious-grapes.one/  # Remote target directory
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          source: "_site/*"
+          target: "/var/www/curious-grapes.one/"
