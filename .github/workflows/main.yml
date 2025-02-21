@@ -36,4 +36,4 @@ jobs:
           SOURCE: "curious-grapes.one/"
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: /var/www/
+          TARGET: /home/roman/my-website
