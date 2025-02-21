@@ -1,0 +1,36 @@
+name: Deploy 11ty to Server via SSH
+
+on:
+  push:
+    branches:
+      - main  # Run when you push to main (or another branch)
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Adjust based on your Node version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the site with 11ty
+        run: npx @11ty/eleventy
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to server
+        run: |
+          rsync -avz --delete _site/ roman@${{ secrets.server_ip }}:/var/www/curious-grapes.one/
+        env:
+          SSH_AUTH_SOCK: ${{ secrets.SSH_PRIVATE_KEY }}  # Use the private key for SSH
