@@ -11,7 +11,9 @@
 
     {% if page.url != "/" %}
     <div class="featured-image-container mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none">
+    {% if img %}
         <img src="{{ img }}" alt="{{ title }}" class="rounded-lg shadow-lg mx-auto">
+    {% endif %}
     </div>
     <div class="prose dark:prose-invert mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none text-justify flex-grow dark:text-gray-100">
          
