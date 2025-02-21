@@ -1,4 +1,4 @@
-name: Deploy 11ty to Server via SSH
+name: Deploy 11ty to Server via SCP
 
 on:
   push:
@@ -24,20 +24,11 @@ jobs:
       - name: Build the site with 11ty
         run: npm run prod
 
-      - name: Set up SSH agent
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Add SSH known hosts
-        run: |
-          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-
-      - name: Test SSH Connection
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "echo 'SSH connection successful'"
-
-      - name: Deploy via rsync
-        run: |
-          rsync -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -avz --delete _site/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/curious-grapes.one/
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh-agent.sock
+          local: _site  # Local directory to be copied
+          remote: /var/www/curious-grapes.one/  # Remote target directory
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.KEY }}
