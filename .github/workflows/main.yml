@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build the site with 11ty
-        run: npx @11ty/eleventy
+        run: npm run prod
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
