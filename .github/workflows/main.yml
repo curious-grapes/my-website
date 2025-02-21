@@ -37,3 +37,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: /home/roman/my-website
+          SCRIPT_BEFORE: |
+            rm -rf /var/www/curious-grapes/*
+          SCRIPT_AFTER: |
+            mv my-website/* /var/www/curious-grapes.one/
+            
