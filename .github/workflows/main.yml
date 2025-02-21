@@ -3,7 +3,7 @@ name: Deploy 11ty to Server via SSH
 on:
   push:
     branches:
-      - main  # Run when you push to main (or another branch)
+      - main  # Run on push to main branch
 
 jobs:
   build-deploy:
@@ -24,13 +24,14 @@ jobs:
       - name: Build the site with 11ty
         run: npm run prod
 
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: Deploy to server using SSH
+        uses: appleboy/ssh-action@v1.2.1
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy to server
-        run: |
-          rsync -avz --delete _site/ roman@${{ secrets.server_ip }}:/var/www/curious-grapes.one/
-        env:
-          SSH_AUTH_SOCK: ${{ secrets.SSH_PRIVATE_KEY }}  # Use the private key for SSH
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            mkdir -p /var/www/curious-grapes.one
+            rsync -avz --delete _site/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/curious-grapes.one/
+            echo "Deployment completed successfully!"
