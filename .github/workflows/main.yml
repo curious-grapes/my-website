@@ -3,7 +3,7 @@ name: Deploy 11ty to Server via SCP
 on:
   push:
     branches:
-      - main  # Run when you push to main (or another branch)
+      - prod  # Run when you push to main (or another branch)
 
 jobs:
   build-deploy:
