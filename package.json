@@ -1,6 +1,7 @@
 {
   "name": "site",
   "version": "1.0.0",
+  "type": "module",
   "main": ".eleventy.js",
   "scripts": {
     "start": "npx eleventy --serve",
