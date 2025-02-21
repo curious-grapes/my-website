@@ -3,7 +3,7 @@ name: Deploy 11ty to Server via SSH
 on:
   push:
     branches:
-      - main  # Run on push to main branch
+      - main  # Run when you push to main (or another branch)
 
 jobs:
   build-deploy:
@@ -23,21 +23,21 @@ jobs:
 
       - name: Build the site with 11ty
         run: npm run prod
-        
-      - name: Disable strict host key checking
-        run: |
-          mkdir -p ~/.ssh
-          echo "StrictHostKeyChecking no" >> ~/.ssh/config
-          chmod 600 ~/.ssh/config
 
-      - name: Deploy to server using SSH
-        uses: appleboy/ssh-action@v1.2.1
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            mkdir -p /var/www/curious-grapes.one
-            rsync -avz --delete _site/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/curious-grapes.one/
-            echo "Deployment completed successfully!"
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add SSH known hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Test SSH Connection
+        run: ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "echo 'SSH connection successful'"
+
+      - name: Deploy via rsync
+        run: |
+          rsync -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -avz --delete _site/ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/curious-grapes.one/
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh-agent.sock
