@@ -4,10 +4,10 @@
   "main": ".eleventy.js",
   "scripts": {
     "start": "npx eleventy --serve",
-    "devstart": "npx eleventy --serve && npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
     "clean": "rm -rf _site package-lock.json node_modules && npm cache clean --force",
     "build": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
-    "prod": "npx eleventy && npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --minify"
+    "prod": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --minify && npx eleventy",
+    "dev": "npm-run-all --parallel build start"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "luxon": "^3.0.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
     "autoprefixer": "^10.4.20",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.5.1",
