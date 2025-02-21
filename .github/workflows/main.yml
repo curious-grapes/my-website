@@ -38,7 +38,8 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: /home/roman/my-website
           SCRIPT_BEFORE: |
-            rm -rf /var/www/curious-grapes/*
+            rm -rf /var/www/curious-grapes.one/*
+            rm -rf /home/roman/my-website/*
           SCRIPT_AFTER: |
-            mv my-website/* /var/www/curious-grapes.one/
+            rsync -avz --delete /home/roman/my-website/ /var/www/curious-grapes.one/
             
