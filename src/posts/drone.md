@@ -1,5 +1,5 @@
 ---
-title: "Drone"
+title: "FPV in 5 min"
 date: "2024-04-04"
 tags: ["post", "drone"]
 layout: layouts/base.html

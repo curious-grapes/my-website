@@ -3,14 +3,14 @@
 <head>
     {% include "parts/basehead.html" %}
 </head>
-<body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 fade-in font-roboto">
+<body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-950 dark:text-gray-100 fade-in font-roboto">
 
     {% include "parts/nav.html" %}
 
     
 
     {% if page.url != "/" %}
-    <div class="featured-image-container mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none">
+    <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none">
     {% if img %}
         <img src="{{ img }}" alt="{{ title }}" class="rounded-lg shadow-lg mx-auto">
     {% endif %}
