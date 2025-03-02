@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.html
 title: "About"
-description: "Hi, my name is Roman Stetsiuk and this is my site. You can find here my mini-blog and much more."
+description: "Hi, my name is Roman Stetsiuk and this is my about page."
 ---
 
 

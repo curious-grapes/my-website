@@ -4,7 +4,7 @@ date: "2023-01-09"
 tags:
   - travel
 img: "/posts/materials/featured-img/spinaker.png"
-description: "Hi, my name is Roman Stetsiuk and this is my site. You can find here my mini-blog and much more."
+description: "I traveled to Krakow for a one-week school dedicated to research of novel energy generation methods."
 excerpt: "One week of my life from 2022."
 ---
 

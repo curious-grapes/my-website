@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.html
 title: "Ukrainian page"
+eleventyExcludeFromCollections: true
 ---
 
 Це сторінка на українській!
