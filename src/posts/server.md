@@ -1,8 +1,8 @@
 ---
 title: "Server"
 date: "2022-11-14"
-tags: ["post", "server"]
-layout: layouts/base.html
+tags:
+  - server
 img: "/posts/materials/featured-img/server.png"
 description: "This is how I started my homelab server"
 excerpt: "You know, I can control server even if it is off?"

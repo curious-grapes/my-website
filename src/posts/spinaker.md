@@ -1,8 +1,8 @@
 ---
 title: "Spinaker"
 date: "2023-01-09"
-tags: ["post", "travel"]
-layout: layouts/base.html
+tags:
+  - travel
 img: "/posts/materials/featured-img/spinaker.png"
 description: "Hi, my name is Roman Stetsiuk and this is my site. You can find here my mini-blog and much more."
 excerpt: "One week of my life from 2022."
