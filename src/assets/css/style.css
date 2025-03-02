@@ -66,30 +66,23 @@ html, body {
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-
-
-
-
-/* CUSTOM SCROLL BAR */
-/* body {
-  --sb-track-color: #232e33;
-  --sb-thumb-color: #6BAF8D;
-  --sb-size: 15px;
+ul li::marker {
+  font-size: 1.2em;
+  animation: rainbow 2s infinite;
 }
-body::-webkit-scrollbar {
-  width: var(--sb-size)
+
+@keyframes rainbow {
+  0% { color: red; }
+  14% { color: orange; }
+  28% { color: #b9c50d; }
+  42% { color: green; }
+  57% { color: blue; }
+  71% { color: rgb(135, 8, 226); }
+  85% { color: violet; }
+  100% { color: red; }
 }
-body::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 1px;
+
+ul li::marker {
+  font-size: 1.2em !important;
+  animation: rainbow 20s infinite !important;
 }
-body::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 1px;
-  
-}
-@supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }} */
