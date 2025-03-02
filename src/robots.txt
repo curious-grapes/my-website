@@ -1,4 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /ua/
 
-Sitemap: https://curious-grapes.one/sitemap_index.xml
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://test.curious-grapes.one/sitemap.xml

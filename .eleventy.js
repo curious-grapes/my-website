@@ -1,17 +1,19 @@
 import { DateTime } from 'luxon';
 import sitemap from "@quasibit/eleventy-plugin-sitemap";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('src/assets');
   eleventyConfig.addPassthroughCopy('src/manifest.json');
-  // eleventyConfig.addPassthroughCopy('src/robots.txt');
+  eleventyConfig.addPassthroughCopy('src/robots.txt');
 
   eleventyConfig.addPlugin(sitemap, {
   sitemap: {
     hostname: "https://test.curious-grapes.one",
   },
   });
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 
   eleventyConfig.addPassthroughCopy('src/posts/**/*.jpg');
   eleventyConfig.addPassthroughCopy('src/posts/**/*.png');
