@@ -1,4 +1,7 @@
 import { DateTime } from 'luxon';
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
 import sitemap from "@quasibit/eleventy-plugin-sitemap";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
@@ -11,6 +14,7 @@ export default function(eleventyConfig) {
   // eleventyConfig.addPassthroughCopy('src/posts/**/*.png');
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight)
   
 
   // Add custom date filter
@@ -30,6 +34,17 @@ export default function(eleventyConfig) {
       hostname: "https://test.curious-grapes.one",
     },
   });
+
+  const md = markdownIt({ html: true, linkify: true })
+  md.use(markdownItAnchor, { 
+    level: [1, 2], 
+    permalink: markdownItAnchor.permalink.headerLink({ 
+      safariReaderFix: true,
+      class: 'header-anchor',
+    })
+  })
+  eleventyConfig.setLibrary('md', md)
+
 
   return {
   dir: {

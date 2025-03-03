@@ -99,6 +99,15 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
+``` bash
+sudo rm -rf /
+```
+
+``` python
+print(hello-world)
+```
+
+
 ## Tables
 
 | Option | Description |

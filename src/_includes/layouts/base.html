@@ -7,8 +7,6 @@
 
     {% include "parts/nav.html" %}
 
-    
-
     {% if page.url != "/" %}
     <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-60 max-w-none">
     {% if img %}
@@ -85,6 +83,33 @@
                     this.classList.remove('fade-in');
                 }, 500);  // Animation duration
             }, 250);  // Short delay before changing the icon
+        });
+    });
+
+    // Add copy button to code blocks
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre').forEach(pre => {
+            const container = document.createElement('div');
+            container.classList.add('pre-container');
+            pre.parentNode.insertBefore(container, pre);
+            container.appendChild(pre);
+
+            const button = document.createElement('button');
+            button.classList.add('copy-button');
+            button.textContent = 'Copy';
+            container.appendChild(button);
+
+            button.addEventListener('click', () => {
+                const code = pre.innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
         });
     });
 </script>

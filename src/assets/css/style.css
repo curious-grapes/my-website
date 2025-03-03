@@ -4,9 +4,14 @@
 }
 
 a {
-    /* text-decoration: underline; */
-    /* color: #4A5568; Custom text color */
+  /* text-decoration: underline; */
+  /* color: #4A5568; Custom text color */
 }
+
+.header-anchor {
+  text-decoration: none!important;
+}
+
 
 .nav-link {
   position: relative;
