@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx eleventy --serve",
     "clean": "rm -rf _site package-lock.json node_modules && npm cache clean --force",
+    "erase": "rm -rf _site .cache",
     "build": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --watch",
     "prod": "npx tailwindcss -i ./tailwind.css -o ./src/assets/css/tailwind.css --postcss --minify && npx eleventy",
     "dev": "npm-run-all --parallel build start"
