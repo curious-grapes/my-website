@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
     {% include "parts/basehead.html" %}
+    <script>
+        // Apply theme immediately before page renders to prevent flash
+        (function() {
+            const isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
 <body class="flex flex-col min-h-screen bg-zinc-100 dark:bg-zinc-800 text-gray-950 dark:text-gray-100 fade-in font-roboto">
 
@@ -61,10 +70,15 @@
         }
     }
 
-    // Apply theme based on saved preference (no transition on load)
+    // Apply theme based on saved preference (no transition on load) and update icons
     document.addEventListener('DOMContentLoaded', () => {
         const currentTheme = isDarkMode();
         applyTheme(currentTheme, false);  // Apply theme on page load
+        
+        // Update all toggle icons to match the current theme
+        document.querySelectorAll(".toggleDarkMode").forEach(function(button) {
+            button.textContent = currentTheme ? "dark_mode" : "light_mode";
+        });
     });
 
     // Event listener for both dark mode toggle buttons using the shared class
