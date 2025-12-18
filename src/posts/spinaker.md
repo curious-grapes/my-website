@@ -1,4 +1,5 @@
 ---
+status: "draft" # options: hidden | draft | published
 title: "Spinaker"
 date: "2023-01-09"
 tags:

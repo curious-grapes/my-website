@@ -15,6 +15,15 @@ export default function(eleventyConfig) {
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
   eleventyConfig.addPlugin(syntaxHighlight)
+
+  // Collection for published posts only (for listings, navigation, sitemap, etc.)
+  eleventyConfig.addCollection("publishedPosts", function(collectionApi) {
+    return collectionApi.getFilteredByTag("posts").filter(function(item) {
+      // Default to "published" if status is not set
+      const status = item.data.status || "published";
+      return status === "published";
+    });
+  });
   
 
   // Add custom date filter

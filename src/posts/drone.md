@@ -1,4 +1,5 @@
 ---
+status: "published" # options: hidden | draft | published
 title: "FPV in 5 min"
 date: "2024-04-04"
 tags:

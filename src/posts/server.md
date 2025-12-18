@@ -1,4 +1,5 @@
 ---
+status: "published" # options: hidden | draft | published
 title: "Server"
 date: "2022-11-14"
 tags:
