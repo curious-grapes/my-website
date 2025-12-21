@@ -4,11 +4,11 @@ import markdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import sitemap from "@quasibit/eleventy-plugin-sitemap";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import fs from 'fs';
 
 export default function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy('src/assets');
-  eleventyConfig.addPassthroughCopy('src/manifest.json');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   // eleventyConfig.addPassthroughCopy('src/posts/**/*.jpg');
   // eleventyConfig.addPassthroughCopy('src/posts/**/*.png');
@@ -25,6 +25,18 @@ export default function(eleventyConfig) {
     });
   });
   
+  // Add file modification time filter
+  eleventyConfig.addFilter('fileModTime', (page) => {
+    try {
+      if (page.inputPath) {
+        const stats = fs.statSync(page.inputPath);
+        return stats.mtime;
+      }
+    } catch (e) {
+      // Fallback to page.date if file read fails
+    }
+    return page.date || new Date();
+  });
 
   // Add custom date filter
   eleventyConfig.addFilter('readableDate', (dateString) => {

@@ -3,21 +3,42 @@ permalink: /sitemap.xml
 layout: null
 eleventyExcludeFromCollections: true
 ---
+{%- set homepage = [] -%}
+{%- set sections = [] -%}
+{%- set posts = [] -%}
+
+{%- for page in collections.all -%}
+  {%- if page.url and not page.data.eleventyExcludeFromCollections -%}
+    {%- set status = page.data.status or "published" -%}
+    {%- if status == "published" -%}
+      {%- if page.url == "/" -%}
+        {%- set homepage = (homepage.push(page), homepage) -%}
+      {%- elif page.url.startsWith("/posts/") -%}
+        {%- set posts = (posts.push(page), posts) -%}
+      {%- else -%}
+        {%- set sections = (sections.push(page), sections) -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- set sortedPosts = posts | sort(false, false, 'date') | reverse -%}
+{%- set allPages = homepage.concat(sections).concat(sortedPosts) -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {%- for page in collections.all %}
-    {%- if page.url and not page.data.eleventyExcludeFromCollections %}
-      {%- set status = page.data.status or "published" %}
-      {%- if status == "published" %}
+{%- for page in allPages %}
   <url>
     <loc>https://test.curious-grapes.one{{ page.url }}</loc>
-    {%- if page.data.date %}
-    <lastmod>{{ page.data.date }}</lastmod>
-    {%- elif page.date %}
-    <lastmod>{{ page.date.toISOString() }}</lastmod>
+    {%- set modDate = page.data.dateModified or (page | fileModTime) -%}
+    {%- if modDate -%}
+      {%- if modDate.toISOString -%}
+        {%- set isoStr = modDate.toISOString() -%}
+        {%- set cleanDate = isoStr.split('.')[0] -%}
+    <lastmod>{{ cleanDate }}Z</lastmod>
+      {%- else -%}
+    <lastmod>{{ modDate }}</lastmod>
+      {%- endif -%}
     {%- endif %}
   </url>
-      {%- endif %}
-    {%- endif %}
-  {%- endfor %}
+{%- endfor %}
 </urlset>
