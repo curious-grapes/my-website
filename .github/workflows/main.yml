@@ -25,7 +25,7 @@ jobs:
       - name: Build the site with 11ty
         run: |
           # Set output directory to curious-grapes.one
-          npx eleventy --output=curious-grapes.one
+          npm run prod --output=curious-grapes.one
 
 
       - name: Deploy to Staging server
