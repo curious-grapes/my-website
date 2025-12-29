@@ -1,0 +1,86 @@
+<div id="snowfall"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        // Check if it's winter (December, January, or February)
+        const currentMonth = new Date().getMonth();
+        const isWinter = currentMonth === 11 || currentMonth === 0 || currentMonth === 1;
+        
+        if (!isWinter) {
+            return; // Exit if not winter
+        }
+        
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+        script.onload = function(){
+            // Set height to full document height
+            var snowfall = document.getElementById('snowfall');
+            snowfall.style.position = 'absolute';
+            snowfall.style.top = '0';
+            snowfall.style.left = '0';
+            snowfall.style.width = '100%';
+            snowfall.style.height = document.documentElement.scrollHeight + 'px';
+            snowfall.style.pointerEvents = 'none';
+            snowfall.style.zIndex = '9999';
+            
+            particlesJS("snowfall", {
+                "particles": {
+                    "number": {
+                        "value": 10,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800                                    
+                        }
+                    },
+                    "color": {
+                        "value": "#e3efff"
+                    },
+                    "opacity": {
+                        "value": 0.7,
+                        "random": false,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "size": {
+                        "value": 4,
+                        "random": true,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": false
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 5,
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 300,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": {
+                            "enable": false
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": false
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+        document.head.append(script);
+    });
+</script>
