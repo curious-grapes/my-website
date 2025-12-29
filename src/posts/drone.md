@@ -34,7 +34,7 @@ It will fly 10 kilometers for 40 minutes at 80 km/h but choose only something on
 
 ### **I have only 3 propeller, can I takeoff ?**
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Quadrokopter-X-H-Konfiguration.gif/375px-Quadrokopter-X-H-Konfiguration.gif)
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdrone-zoom.com%2Fwp-content%2Fuploads%2F2018%2F10%2Fdrone-propellers-directions-jpg.jpeg&f=1&nofb=1&ipt=73e38148991ea0ae92504c87c39fab40d87d03bf32bb3b79c97cdfd19c127f05)
 
 Sure, but it's a bit like having a plate of wild mushrooms for dinner—the outcome could be… unpredictable. If you're curious to see just how wildly your drone can spin mid-air, feel free to give it a shot.
 
