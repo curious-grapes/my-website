@@ -13,72 +13,101 @@
         var script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
         script.onload = function(){
-            // Set height to full document height
             var snowfall = document.getElementById('snowfall');
-            snowfall.style.position = 'absolute';
+            snowfall.style.position = 'fixed';
             snowfall.style.top = '0';
             snowfall.style.left = '0';
             snowfall.style.width = '100%';
-            snowfall.style.height = document.documentElement.scrollHeight + 'px';
+            snowfall.style.height = '100%';
             snowfall.style.pointerEvents = 'none';
             snowfall.style.zIndex = '9999';
             
-            particlesJS("snowfall", {
-                "particles": {
-                    "number": {
-                        "value": 10,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800                                    
-                        }
-                    },
-                    "color": {
-                        "value": "#e3efff"
-                    },
-                    "opacity": {
-                        "value": 0.7,
-                        "random": false,
-                        "anim": {
-                            "enable": false
-                        }
-                    },
-                    "size": {
-                        "value": 4,
-                        "random": true,
-                        "anim": {
-                            "enable": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": false
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 5,
-                        "direction": "bottom",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": true,
-                            "rotateX": 300,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "events": {
-                        "onhover": {
+            // Function to initialize particles with correct color based on theme
+            function initSnowfall() {
+                const isLightTheme = !document.documentElement.classList.contains('dark');
+                const snowflakeColor = isLightTheme ? "#555555" : "#e3efff";
+                
+                particlesJS("snowfall", {
+                    "particles": {
+                        "number": {
+                            "value": 10,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800                                    
+                            }
+                        },
+                        "color": {
+                            "value": snowflakeColor
+                        },
+                        "opacity": {
+                            "value": 0.7,
+                            "random": false,
+                            "anim": {
+                                "enable": false
+                            }
+                        },
+                        "size": {
+                            "value": 4,
+                            "random": true,
+                            "anim": {
+                                "enable": false
+                            }
+                        },
+                        "line_linked": {
                             "enable": false
                         },
-                        "onclick": {
-                            "enable": false
-                        },
-                        "resize": false
+                        "move": {
+                            "enable": true,
+                            "speed": 5,
+                            "direction": "bottom",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": true,
+                                "rotateX": 300,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "events": {
+                            "onhover": {
+                                "enable": false
+                            },
+                            "onclick": {
+                                "enable": false
+                            },
+                            "resize": false
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+            
+            // Initialize snowfall on load
+            initSnowfall();
+            
+            // Watch for theme changes using MutationObserver
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.attributeName === 'class') {
+                        // Destroy existing particles
+                        if (window.pJSDom && window.pJSDom[0]) {
+                            window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                            window.pJSDom = [];
+                        }
+                        // Reinitialize with new color
+                        initSnowfall();
                     }
-                },
-                "retina_detect": true
+                });
+            });
+            
+            // Start observing the html element for class changes
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['class']
             });
         }
         document.head.append(script);
