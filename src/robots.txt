@@ -34,4 +34,4 @@ Disallow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://test.curious-grapes.one/sitemap.xml
+Sitemap: https://curious-grapes.one/sitemap.xml

@@ -52,7 +52,7 @@ export default function(eleventyConfig) {
   });
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
-      hostname: "https://test.curious-grapes.one",
+      hostname: "https://curious-grapes.one",
     },
   });
 

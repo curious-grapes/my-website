@@ -28,7 +28,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for page in allPages %}
   <url>
-    <loc>https://test.curious-grapes.one{{ page.url }}</loc>
+    <loc>https://curious-grapes.one{{ page.url }}</loc>
     {%- set modDate = page.data.dateModified or (page | fileModTime) -%}
     {%- if modDate -%}
       {%- if modDate.toISOString -%}
