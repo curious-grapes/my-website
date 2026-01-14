@@ -4,10 +4,15 @@ title: "About"
 description: "Hi, my name is Roman Stetsiuk and this is my about page."
 ---
 
-My name is Roman Stetsiuk, I’m a tech-savvy engineer with a broad range of interests and hands-on experience in software, hardware, research, and DIY projects. Now with a Master of Applied Science degree! <br>
-If you’re interested in details, I was working on the simulation and optimization of complex multiphysical problems, like radioactive waste management using plasma.
+My name is Roman Stetsiuk, I’m a tech-savvy engineer with a broad range of interests and hands-on experience in software, hardware, research, and DIY projects.
+Now with a Master of Applied Science degree! <sup>*</sup>
 
-I’m here because I don’t like the current state of social media. Users often don’t own the data they share, algorithms designed to sell you something, heavily biased moderation, widespread ads that got even in messengers, multiple pop-ups, endless feed, information bubbles, and many other problems. Here, on contrast, I'm in control of every pixel you can see (take bulletpoints for example).
+
+I’m here because I don’t like the current state of social media. Users don’t own the data they share, algorithms are designed to sell you something, heavily biased moderation, widespread ads that got even in messengers, multiple pop-ups, endless feed, information bubbles, and many other problems. Here, on contrast, I'm in control of every pixel you can see (take bulletpoints for example).
+
+
+<sup>*</sup> If you’re interested in details, I was working on the simulation and optimization of complex multiphysical problems, like radioactive waste management using plasma.
+
 ## What I do:
 - Explore cybersecurity, pentesting, encryption, and reverse engineering
 - Work with 3D modelling and simulation software (SolidWorks, Fusion 360, Ansys, COMSOL Multiphysics)
@@ -74,7 +79,7 @@ I’m here because I don’t like the current state of social media. Users often
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2em;">
 <div>
 
-- Three Body Problem
+- 3 Body Problem
 - Pluribus
 
 </div>
