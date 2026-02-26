@@ -19,7 +19,7 @@ I’m here because I don’t like the current state of social media. Users don�
 
 ## What I like:
 ### Games:
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2em;">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-x-8">
 <div>
 
 #### **Indie**
@@ -76,7 +76,25 @@ I’m here because I don’t like the current state of social media. Users don�
 
 
 ### Series:
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2em;">
+
+<style>
+.series-mobile { display: block; }
+.series-desktop { display: none; }
+@media (min-width: 768px) {
+  .series-mobile { display: none; }
+  .series-desktop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2em; }
+}
+</style>
+
+<ul class="series-mobile">
+<li>3 Body Problem</li>
+<li>Pluribus</li>
+<li>Black Mirror</li>
+<li>Love, Death & Robots</li>
+<li>The Hot Zone</li>
+<li>The Walking Dead series</li>
+</ul>
+<div class="series-desktop">
 <div>
 
 - 3 Body Problem
