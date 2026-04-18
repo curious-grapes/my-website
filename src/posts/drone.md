@@ -13,35 +13,35 @@ excerpt: "Ever wondered what birds see? Or how to spend 300$ to the wind."
 So FPV (or First-Person View) is the type of drones that let you fly as if you’re the pilot of the aircraft.
 This aircraft differs from a typical one. If you want to know more, let's get started.
 
-### **How to fly without seeing the drone?**
+# How to fly without seeing the drone?
 
 Pilot has special goggles that transmit video from the drone without any delays.
 
-### **Do you need some kind of license?**
+# Do you need some kind of license?
 
 In general, it's country specific, but in Canada, you have to have a Basic Drone Operator Certificate. It costs around $10, and you have to pass an online test. For the Advanced Certificate, there's a pilot exam and more tests.
 
-### **Can I use my laptop battery to power the drone?**
+# Can I use my laptop battery to power the drone?
 
 Well, actually, you can! Older models of laptops were equipped with a high current Li-Ion batteries that can be used in DIY FPV drones.
 
-### **Does it fly far, fast, and for a long time?**
+# Does it fly far, fast, and for a long time?
 
-![](https://cdn.curious-grapes.one/Screenshot_1.png)
+![](/posts/materials/posts/drone/flight_log.png)
 
 It will fly 10 kilometers for 40 minutes at 80 km/h, but choose only one thing at a time.
 
-### **I have only 3 propellers, can I take off?**
+# I have only 3 propellers, can I take off?
 
 Sure, but it's a bit like having a plate of wild mushrooms for dinner—the outcome could be… unpredictable. If you're curious to see just how wildly your drone can spin mid-air, feel free to give it a shot.
 
-### **What do you respond to friends asking, 'Can I fly it?'**
+# What do you respond to friends asking, 'Can I fly it?'
 
 I usually respond: I'll let you fly right after you finish reading the 100-page manual on 'How Not to Crash Your Brand-New Drone.' After you read it, there are drone simulators you must learn first.
 
-![](https://static1.srcdn.com/wordpress/wp-content/uploads/2020/11/Liftoff-Drone-Racing-screenshot-2.jpg)
+![](/posts/materials/posts/drone/drone_simulator.png)
 
-### P.S. I couldn’t say no, and my friend lost the drone… Are there any chances of finding it?
+# P.S. I couldn’t say no, and my friend lost the drone… Are there any chances of finding it?
 
 First of all, don’t argue with your friend and don’t block them on all messaging apps. Second, don’t panic and read this article to the end. So, there are four options:
 
@@ -52,12 +52,12 @@ First of all, don’t argue with your friend and don’t block them on all messa
 
 Check the last coordinates of the drone on the controller or in your FPV goggles and feel like a pirate searching for treasure!
 
-![](https://cdn.curious-grapes.one/telemetry.png)
+![](/posts/materials/posts/drone/telemetry.png)
 
-### Are you still here?
+# Are you still here?
 
 Do you have a Tbeacon? (It's a board that is soldered in parallel to the battery and GPS module, which transmits the coordinates of your drone to the radio). Now your task is to write down the coordinates and go searching. You can also roughly determine the direction of the crash by doing a quick waltz with the radio (this way, you block 180 out of 360 possible directions, and by listening for three different tones, you can figure out where the drone fell).
 
-![](https://tbeacon.org.ua/images/newfoto/Amber1.jpg)
+![](/posts/materials/posts/drone/tbeacon_amber.png)
 
 What? Is it stuck in the tree? Damn… Have you and your friend not completely fallen out yet? Because you might need a ladder, a fishing rod, a long stick, some paracord, or another drone.

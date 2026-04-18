@@ -8,7 +8,7 @@
  */
 
 export default {
-  layout: "layouts/base.html",
+  layout: "templates/posts.html",
   tags: ["posts"],
   eleventyComputed: {
     permalink: function(data) {

@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.html
+layout: templates/page.html
 title: "Ukrainian page"
 eleventyExcludeFromCollections: true
 ---
@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 Це сторінка на українській!
 
 
-
+![](/posts/materials/featured-img/under-construction.png)
 
 ---
 
@@ -34,6 +34,7 @@ _This is italic text_
 
 ~~Strikethrough~~
 
+==This is highlighted text==
 
 ## Blockquotes
 
@@ -70,6 +71,13 @@ Start numbering with offset:
 57. foo
 1. bar
 
+## Accordion
+<details>
+<!-- <details open> -->
+  <summary>Click here to open list of tweaks</summary>
+items inside  
+
+</details>
 
 ## Code
 
@@ -130,3 +138,44 @@ Right aligned columns
 [link text](http://dev.nodeca.com)
 
 [link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+
+
+> [!note]
+> This is a plain note.
+
+> [!abstract]
+> This is a abstract note.
+
+> [!info]
+> Extra context here.
+
+> [!todo]
+> Don't forget to do this.
+
+> [!tip] Custom title
+> You can override the label after the type keyword.
+
+> [!success]
+> It worked!
+
+> [!question]- Are callouts foldable?
+> Yes! This one is collapsed by default.
+
+> [!warning]
+> Watch out!
+
+> [!failure]
+> Something went wrong.
+
+> [!danger]
+> Do **not** do this.
+
+> [!bug]
+> Something isn't working.
+
+> [!example]+ Expanded by default
+> This one is open by default.
+
+> [!quote]
+> This is a quote callout.

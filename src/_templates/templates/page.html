@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "parts/head.html" %}
+    {% include "parts/analytics.html" %}
+    {% include "parts/snow.html" %}
+    {% include "parts/scripts.html" %}
+
+</head>
+<body>
+
+    {% include "parts/nav.html" %}
+    <main class="prose">
+        {% if page.url != "/" %}<div class="page-title">{{title}}</div>{% endif %}
+        {{content | safe}}
+    </main>
+
+    {% include "parts/footer.html" %}
+</body>
+</html>

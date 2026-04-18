@@ -1,23 +1,48 @@
 ---
-layout: layouts/base.html
+layout: templates/page.html
 title: "Roman tries engineering"
 description: "Hi, my name is Roman Stetsiuk and this is my site. You can find here my mini-blog and much more."
+pagination:
+    data: collections.publishedPosts
+    size: 8
+    reverse: true
+    alias: posts
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {% for post in collections.publishedPosts | sort(attribute='data.date', reverse=true) %}
-    <div class="rounded-2xl border border-gray-300 mb-5 max-w-xs mx-auto transform transition-transform duration-300 hover:scale-105">
-        <a href="{{ post.url}}">
-            <img src="{{ post.data['img'] }}" alt="{{ post.data.title }}" class="rounded-t-2xl object-cover w-full h-48 aspect-w-16 aspect-h-9">
-            <div class="ml-4">
-                <h1 class="text-3xl font-bold my-2 mt-3">{{ post.data.title }}</h1>
-                <p class="text-[17px] font-extralight font-stretch-condensed mb-2.5 flex justify-between mr-4">
-                    <span>{{ post.data.date | readableDate }}</span>
-                    <span>{{ post.content | safe | readTime }} min read</span>
-                </p>                
-                <p class="font-light mb-3 mr-3">{{ post.data.excerpt }}</p>
+<div class="post-grid">
+        {% for post in posts %}
+    <a class="post-card" href="{{ post.url }}">
+        <img class="post-card__img" src="{{ post.data['img'] }}" alt="{{ post.data.title }}">
+        <div class="post-card__body">
+            <div class="post-card__title">{{ post.data.title }}</div>
+            <div class="post-card__meta">
+                <span>{{ post.data.date | readableDate }}</span>
+                <span>{{ post.content | safe | readTime }} min read</span>
             </div>
-        </a>
-    </div>
+            <div class="post-card__excerpt">{{ post.data.excerpt }}</div>
+        </div>
+    </a>
     {% endfor %}
 </div>
+
+{% if pagination.hrefs and pagination.hrefs.length > 1 %}
+<nav class="pagination-nav" aria-label="Posts pagination">
+    {% if pagination.href.previous %}
+    <a class="pagination-link" href="{{ pagination.href.previous }}">◀</a>
+    {% else %}
+    <span class="pagination-link is-disabled">◀</span>
+    {% endif %}
+
+    <div class="pagination-pages">
+        {% for href in pagination.hrefs %}
+        <a class="pagination-link{% if href == page.url %} is-current{% endif %}" href="{{ href }}">{{ loop.index }}</a>
+        {% endfor %}
+    </div>
+
+    {% if pagination.href.next %}
+    <a class="pagination-link" href="{{ pagination.href.next }}">▶</a>
+    {% else %}
+    <span class="pagination-link is-disabled">▶</span>
+    {% endif %}
+</nav>
+{% endif %}
