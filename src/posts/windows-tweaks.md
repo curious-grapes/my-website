@@ -348,6 +348,7 @@ Windows Registry Editor Version 5.00
 
 # Links
 - Download full reg with tweaks [here](/posts/materials/posts/windows-tweaks/full.reg){download}.
+- [Disable GDID device identifier](https://github.com/Korben00/no-gdid)
 - [Win10Privacy](https://www.w10privacy.de/deutsch-start/download/) + [config file](/posts/materials/posts/windows-tweaks/w10priv.ini){download}
 - [Winaero Tweaker](https://winaerotweaker.com)
 - [Winscript](https://github.com/flick9000/winscript "Not tested")
