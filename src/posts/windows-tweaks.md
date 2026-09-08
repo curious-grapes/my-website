@@ -353,7 +353,7 @@ Windows Registry Editor Version 5.00
 - [Winaero Tweaker](https://winaerotweaker.com)
 - [Winscript](https://github.com/flick9000/winscript "Not tested")
 - [File generations for unattended installations](https://schneegans.de/windows/unattend-generator/)
-
+- [Powershell script to enroll in Windows 10 Extended Security Updates (ESU) program](https://github.com/abbodi1406/ConsumerESU)
 # Remove Windows AI
 Copy command below and run from Powershell console as administrator. [Source](https://github.com/zoicware/RemoveWindowsAI)
 ``` powershell
