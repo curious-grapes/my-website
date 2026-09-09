@@ -28,6 +28,10 @@ Advances in Science and Technology Research Journal 2024
 https://doi.org/10.12913/22998624/191263
 ![](/posts/materials/posts/publications/design_and_optimization_of_experimental_adsorber.png)
 
+# Master's Thesis: Integrated optimization approach for plasma-based radioactive waste treatment process
+Master of Applied Science (MASc), Ontario Tech University 2025
+https://hdl.handle.net/10155/2060
+
 # Conferences 
 ## Integrated optimization of plasma based radioactive waste treatment process
 Conference on Nuclear Waste Management, Decomissioning and Enviromental Restoration
