@@ -32,6 +32,15 @@ https://doi.org/10.12913/22998624/191263
 Master of Applied Science (MASc), Ontario Tech University 2025
 https://hdl.handle.net/10155/2060
 
+# Patents
+## Radio-Frequency Inductively Coupled Plasma (RF-ICP) torch
+Google Patents: https://patents.google.com/patent/WO2026039914A1
+![](/posts/materials/posts/publications/rf_torch.png)
+
+## Method and system for processing of low- and intermediate-level radioactive waste
+Google Patents: https://patents.google.com/patent/WO2026039913A1
+![](/posts/materials/posts/publications/waste_treatment.png)
+
 # Conferences 
 ## Integrated optimization of plasma based radioactive waste treatment process
 Conference on Nuclear Waste Management, Decomissioning and Enviromental Restoration
